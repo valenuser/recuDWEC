@@ -8,10 +8,10 @@
                     <div class="bg-[#00233B] w-[400px] h-[500px] rounded-xl flex flex-col items-center justify-around">
                         <h1 class="text-[#B1D9F5] font-bold text-[25px]">ACCEDER</h1>
                         <div class="flex flex-col justify-around h-[200px]">
-                            <input type="email" placeholder="Correo electrónico" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold">
-                            <input type="password" placeholder="Contraseña" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold">
+                            <input type="email" placeholder="Correo electrónico" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold" v-model="correo">
+                            <input type="password" placeholder="Contraseña" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold" v-model="password">
                         </div>
-                        <button class="bg-red-500 p-3 w-[130px] text-white font-bold rounded">Acceder</button>
+                        <button class="bg-red-500 p-3 w-[130px] text-white font-bold rounded" @click="login">Acceder</button>
                         <div class="flex">
                             <p class="text-white">No tienes cuenta?</p>
                             <p class="text-red-600 ml-1 underline decoration-2 cursor-pointer" @click="register" >Crear cuenta</p>
@@ -42,11 +42,56 @@
     </section>
 </template>
 <script>
+import Swal from 'sweetalert2'
+import { mapState,mapMutations } from 'vuex';
 export default{
+    data(){
+        return{
+            correo:'',
+            password:''
+        }
+    },
     methods:{
+        ...mapMutations(['LOGIN_USER']),
         register(){
             this.$router.push({name:'registrarse'})
+        },
+        login(){
+            if(this.correo.includes(' ') || this.correo == ''  || this.password.includes(' ') || this.password == ''){
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: "Rellene el formulario correctamente",
+                    showConfirmButton: false,
+                    timer: 1500
+                    });
+
+                    this.correo = ''
+                    this.password = ''
+            }else{
+
+                const user = this.users.find(el => el.correo == this.correo && el.password == this.password)
+    
+                if(user != undefined){
+                    this.LOGIN_USER(user)
+                    this.$router.push({name:'buscar'})
+                }else{
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: "Usuario no encontrado.",
+                        showConfirmButton: false,
+                        timer: 1500
+                        });
+    
+                    this.correo = ''
+                    this.password = ''
+                }
+            }
         }
+    },
+    computed:{
+        ...mapState(['users'])
     }
 }
 </script>

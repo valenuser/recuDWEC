@@ -8,11 +8,11 @@
                     <div class="bg-[#00233B] w-[400px] h-[500px] rounded-xl flex flex-col items-center justify-around">
                         <h1 class="text-[#B1D9F5] font-bold text-[25px]">REGISTRARSE</h1>
                         <div class="flex flex-col justify-around h-[300px]">
-                            <input type="text" placeholder="Nombre de usuario" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold">
-                            <input type="email" placeholder="Correo electrónico" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold">
-                            <input type="password" placeholder="Contraseña" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold">
+                            <input type="text" placeholder="Nombre de usuario" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold" v-model="username">
+                            <input type="email" placeholder="Correo electrónico" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold" v-model="correo">
+                            <input type="password" placeholder="Contraseña" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold" v-model="password">
                         </div>
-                        <button class="bg-red-500 p-2 w-[160px] text-white font-bold rounded">Crear cuenta</button>
+                        <button class="bg-red-500 p-2 w-[160px] text-white font-bold rounded" @click="registerUser">Crear cuenta</button>
                         <div class="flex">
                             <p class="text-white">Ya tienes cuenta?</p>
                             <p class="text-red-600 ml-1 underline decoration-2 cursor-pointer" @click="login">Iniciar sesión</p>
@@ -43,10 +43,50 @@
     </section>
 </template>
 <script>
+import Swal from 'sweetalert2'
+import { mapMutations } from 'vuex';
 export default{
+    data(){
+        return{
+            username:'',
+            correo:'',
+            password:''
+        }
+    },
     methods:{
+        ...mapMutations(['REGISTER_USER']),
         login(){
             this.$router.push({name:'home'})
+        },
+        registerUser(){
+            const pastronEmail = /[@]/g
+            const mayusculas = /[A-Z]/g
+            const minusculas = /[a-z]/g
+            const numeros = /[0-9]/g
+
+
+            if( this.username == ''  || this.username.includes(' ')  || this.correo == '' || this.correo.includes(' ') || this.password == '' || this.password.includes(' ') ||this.username.length < 3 || this.username.length > 10 || this.correo.match(pastronEmail) == null || this.correo.includes('.') == false || this.password.match(mayusculas) == null || this.password.match(minusculas) == null || this.password.match(numeros) == null){
+                Swal.fire({
+                    position: "center",
+                    icon: "error",
+                    title: "Los datos estan mal proporcionados.",
+                    showConfirmButton: false,
+                    timer: 1500
+                    });
+                    this.password = ''
+                    this.username = ''
+                    this.correo = ''
+            }else{
+                const user = {
+                    username:this.username,
+                    password:this.password,
+                    correo:this.correo
+                }
+
+                this.REGISTER_USER(user)
+
+                this.$router.push({name:'home'})
+            }
         }
     }
 }
