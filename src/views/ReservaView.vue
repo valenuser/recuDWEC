@@ -1,7 +1,8 @@
 <template>
-    <section class=" w-[100%] h-[100vh] bg-no-repeat bg-cover flex flex-col items-center justify-center" style="background-image: url('https://images.gestionaweb.cat/2486/img-1280-720/architecture-gf0426e69e-1920-1765123.jpg')">
-        <div class=" w-[80%] h-[85vh] flex flex-col overflow-hidden justify-start">
-                <div class="w-[35%] flex items-center justify-center">
+    <section class="relative w-[100%] h-[100vh] bg-no-repeat bg-cover flex flex-col items-center justify-center overflow-hidden" style="background-image: url('https://images.gestionaweb.cat/2486/img-1280-720/architecture-gf0426e69e-1920-1765123.jpg')">
+        <div class="hidden xl:flex lg:absolute top-[400px] -right-[150px] w-[900px] h-[900px] bg-gradient-to-b from-[#00233B] via-[#EA281C] to-[#EA281C] rounded-full z-0"></div>
+        <div class=" w-[80%] h-[85vh] flex flex-col overflow-hidden justify-start z-10">
+                <div class="w-[100%]  xl:w-[35%] flex items-center justify-center">
                     <img src="https://oridhean.com/Consorcios/llave.gif" alt="" class="w-[120px] h-[120px]">
                 </div>
                 <div class="flex items-center justify-around w-[100%] h-[60vh]">
@@ -22,7 +23,7 @@
                             <p class="text-red-600 ml-1 underline decoration-2 cursor-pointer" @click="buscar">Volver</p>
                         </div>
                     </div>
-                    <div class="w-[60%] h-[100vh]  flex items-center justify-center">
+                    <div class="w-[60%] h-[100vh]  hidden xl:flex items-center justify-center">
                         <div class="w-[800px] h-[500px] rounded-xl bg-white flex  justify-around  overflow-hidden">
                             <img :src="inmueble.fotoPortada" alt="" class="w-[420px]">
                             <div class="flex flex-col ml-2 justify-around items-start h-[400px]">
@@ -38,10 +39,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-[100%] h-[90px]  flex items-end justify-end">
-                    <div class="w-[800px] flex justify-around text-[18px] underline text-white">
+                <div class="w-[100%] h-[90px]  flex xl:items-end xl:justify-end  justify-center z-10">
+                    <div class="w-[400px]    xl:w-[800px] flex justify-around text-[15px] underline text-white z-10 xl:text-[18px]">
                         <p>Términos y condiciones</p>
-                        <p>Términos y condiciones</p>
+                        <p>Política de privacidad</p>
                     </div>
                 </div>
             </div>
