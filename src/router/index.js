@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '@/views/LoginView'
 import RegisterView from '@/views/RegisterView'
 import SearchView from '@/views/SearchView'
+import ReservaView from '@/views/ReservaView'
 
 
 const routes = [
@@ -20,6 +21,11 @@ const routes = [
     path: '/buscar',
     name: 'buscar',
     component: SearchView
+  },
+  {
+    path: '/reserva/:id',
+    name: 'reserva',
+    component: ReservaView
   },
 ]
 

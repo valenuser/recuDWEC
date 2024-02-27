@@ -1,38 +1,58 @@
-export const data = [
-    {
-        direccion:'CALLE PRIMAVERA 123, CIUDAD JARDÍN',
-        habitaciones:3,
-        baños:2,
-        area:150,
-        venta:250000,
-        alquiler:1200,
-        picture:'https://www.realia.es/storage/Blog/pisos-en-venta-en-madrid-1698921232IRQfz.jpg'
+export const inmuebles = [
+  {
+    id: 1,
+    ubicacion: "CALLE PRIMAVERA 123, CIUDAD JARDÍN",
+    caracteristicas: {
+      habitaciones: 3,
+      baños: 2,
+      area: "150 m²",
+      garaje: true
+    },
+    precioVenta: 250000,
+    precioAlquiler: 1200,
+    fechasOcupadas: ["2024-03-15", "2024-03-16", "2024-03-17"],
+    fotoPortada: "https://www.caralca.es/wp-content/uploads/2021/02/pisos-en-venta-en-Huelva.jpg"
+  },
+  {
+    id: 2,
+    ubicacion: "AVENIDA DEL SOL 456, URBANIZACIÓN LOS PINOS",
+    caracteristicas: {
+      habitaciones: 4,
+      baños: 3,
+      area: "200 m²",
+      garaje: false
+    },
+    precioVenta: 350000,
+    precioAlquiler: 1500,
+    fechasOcupadas: ["2024-03-20", "2024-03-21"],
+    fotoPortada: "https://www.realia.es/storage/Blog/pisos-en-venta-en-madrid-1698921232IRQfz.jpg"
+  },
+  {
+      id: 3,
+      ubicacion: "CALLE LUNA 789, BARRIO LUNAR",
+      caracteristicas: {
+        habitaciones: 2,
+        baños: 1,
+        area: "100 m²",
+        garaje: false
+      },
+      precioVenta: 180000,
+      precioAlquiler: 900,
+      disponible: true,
+      fotoPortada: "https://decoratrix.estaticos.com.es/img/posts/2015/01/cocina-y-comedor-.jpg"
     },
     {
-        direccion:'AVENIDA DEL SOL 456, URBANIZACIÓN LOS PINOS',
-        habitaciones:4,
-        baños:3,
-        area:200,
-        venta:350000,
-        alquiler:2000,
-        picture:'https://www.elmueble.com/medio/2022/03/03/salon-con-sofa-verde-de-piso-de-80-m2_7cb3725c_1200x934.jpg'
+      id: 4,
+      ubicacion: "PLAZA MAYOR 101, CENTRO HISTÓRICO",
+      caracteristicas: {
+        habitaciones: 5,
+        baños: 4,
+        area: "300 m²",
+        garaje: true
+      },
+      precioVenta: 500000,
+      precioAlquiler: 2000,
+      fechasOcupadas: ["2024-03-18"],
+      fotoPortada: "https://img3.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/b5/5b/e0/1205417274.jpg"
     },
-    {
-        direccion:'CALLE LUNA 789, BARRIO LUNAR',
-        habitaciones:2,
-        baños:1,
-        area:100,
-        venta:180000,
-        alquiler:900,
-        picture:'https://blog.homedepot.com.mx/wp-content/uploads/2023/05/imagen2-2-1024x787.jpeg'
-    },
-    {
-        direccion:'PLAZA MAYOR 101, CENTRO HISTÓRICO',
-        habitaciones:5,
-        baños:4,
-        area:300,
-        venta:500000,
-        alquiler:2000,
-        picture:'https://www.elmueble.com/medio/2023/02/22/reformas-de-pisos_9ef06e0e_230222165520_900x900.jpg'
-    },
-]
+  ];

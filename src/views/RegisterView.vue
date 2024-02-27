@@ -8,14 +8,14 @@
                     <div class="bg-[#00233B] w-[400px] h-[500px] rounded-xl flex flex-col items-center justify-around">
                         <h1 class="text-[#B1D9F5] font-bold text-[25px]">REGISTRARSE</h1>
                         <div class="flex flex-col justify-around h-[300px]">
-                            <input type="text" placeholder="Nombre de usuario" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC]">
-                            <input type="password" placeholder="Correo electrónico" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC]">
-                            <input type="password" placeholder="Contraseña" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC]">
+                            <input type="text" placeholder="Nombre de usuario" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold">
+                            <input type="email" placeholder="Correo electrónico" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold">
+                            <input type="password" placeholder="Contraseña" class="w-[300px] text-center p-3 rounded-xl border-4 border-[#57AEEC] outline-none placeholder:font-bold">
                         </div>
                         <button class="bg-red-500 p-2 w-[160px] text-white font-bold rounded">Crear cuenta</button>
                         <div class="flex">
                             <p class="text-white">Ya tienes cuenta?</p>
-                            <p class="text-red-600 ml-1 underline decoration-2" @click="login">Iniciar sesión</p>
+                            <p class="text-red-600 ml-1 underline decoration-2 cursor-pointer" @click="login">Iniciar sesión</p>
                         </div>
                     </div>
                     <div class="w-[60%] h-[100vh]  flex items-center justify-center">

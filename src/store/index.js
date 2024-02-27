@@ -1,8 +1,8 @@
 import { createStore } from 'vuex'
-import {data} from './data'
+import {inmuebles} from './data'
 export default createStore({
   state: {
-    data:data,
+    inmuebles:inmuebles,
     users:[],
     user:''
   },
